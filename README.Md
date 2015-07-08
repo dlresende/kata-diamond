@@ -5,10 +5,10 @@ I use this kata to work on TDD and more precisely on how to decompose a big prob
 
 ## Kata Description
 
-Given a letter, print a diamond starting with ‘A’ with the supplied letter at the widest point.
+Given a letter, print a diamond starting with â€˜Aâ€™ with the supplied letter at the widest point.
 
 ### Examples
-
+```
 Input: A
 Output: A
 
@@ -23,3 +23,4 @@ Output:   A
         C   C
          B B
           A
+```
