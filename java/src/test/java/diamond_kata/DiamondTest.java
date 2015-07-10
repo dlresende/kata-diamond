@@ -1,7 +1,6 @@
 package diamond_kata;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -12,7 +11,6 @@ public class DiamondTest {
 
     private Diamond diamond;
 
-    @Ignore("pending the implementation of internal methods")
     @Test
     public void should_draw_a_diamond_starting_with_A_with_the_supplied_letter_at_the_widest_point() {
         assertThat(diamond.draw('C'), is(equalTo(
@@ -73,6 +71,24 @@ public class DiamondTest {
                         new char[] {' ', 'B', ' ', 'B', ' '},
                         new char[] {' ', ' ', 'A', ' ', ' '}
                 })));
+    }
+
+    @Test
+    public void should_transform_a_table_into_string() {
+        char[][] slab = new char[][]{
+                new char[] {' ', ' ', 'A', ' ', ' '},
+                new char[] {' ', 'B', ' ', 'B', ' '},
+                new char[] {'C', ' ', ' ', ' ', 'C'},
+                new char[] {' ', 'B', ' ', 'B', ' '},
+                new char[] {' ', ' ', 'A', ' ', ' '}
+        };
+
+        assertThat(diamond.stringify(slab), is(equalTo(
+                "  A  \n" +
+                " B B \n" +
+                "C   C\n" +
+                " B B \n" +
+                "  A  \n")));
     }
 
     @Before

@@ -15,8 +15,19 @@ public class Diamond {
         return stringify(diamond);
     }
 
-    private String stringify(char[][] diamond) {
-        throw new UnsupportedOperationException("not implemented");
+    String stringify(char[][] diamond) {
+        String output = "";
+        final char lineFeed = '\n';
+
+        for (int line = 0; line < diamond.length; line++) {
+            for(int column = 0; column < diamond[line].length; column++) {
+                output += diamond[line][column];
+            }
+
+            output += lineFeed;
+        }
+
+        return output;
     }
 
     char[][] filter(char[][] slap, char[] columnFilter) {
