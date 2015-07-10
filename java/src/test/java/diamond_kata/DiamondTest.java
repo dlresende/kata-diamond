@@ -23,7 +23,6 @@ public class DiamondTest {
                 "  A  \n")));
     }
 
-    @Ignore("pending the implementation of Diamond#buildSlab")
     @Test
     public void should_build_a_slab_from_a_given_letter_used_to_sculpt_the_diamond() {
         assertThat(diamond.buildSlab('C'), is(new char[][]{
@@ -35,11 +34,17 @@ public class DiamondTest {
         }));
     }
 
-    @Ignore("pending the implementation of Diamond#calculateDiameter")
     @Test
     public void should_create_a_line_from_a_given_letter_to_A_and_from_A_back_to_the_letter() {
         assertThat(diamond.createLine('C'), is(equalTo(new char[] {'C', 'B', 'A', 'B', 'C'})));
         assertThat(diamond.createLine('A'), is(equalTo(new char[] {'A'})));
+    }
+
+    @Test
+    public void should_calculate_diamond_diameter() {
+        assertThat(diamond.calculateDiameter('C'), is(5));
+        assertThat(diamond.calculateDiameter('B'), is(3));
+        assertThat(diamond.calculateDiameter('A'), is(1));
     }
 
     @Before

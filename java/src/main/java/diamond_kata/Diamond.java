@@ -39,8 +39,8 @@ public class Diamond {
         return slab;
     }
 
-    private int calculateDiameter(char letter) {
-        throw new UnsupportedOperationException("not implemented");
+    int calculateDiameter(char letter) {
+        return ((int)letter - (int)'A' + 1) * 2 - 1;
     }
 
     char[] createLine(char letter) {
@@ -57,7 +57,7 @@ public class Diamond {
         stack.push('A');
 
         while(!stack.isEmpty()) {
-            line[++i] = stack.pop();
+            line[i++] = stack.pop();
         }
 
         return line;
