@@ -25,7 +25,23 @@ public class Diamond {
         throw new UnsupportedOperationException("not implemented");
     }
 
-    private char[][] buildSlab(char letter) {
+    char[][] buildSlab(char letter) {
+        char[] line = createLine(letter);
+        int numberOfLines = calculateRequiredNumberOfLines(letter);
+        char[][] slab = new char[numberOfLines][];
+
+        for(int l = 0; l < numberOfLines; l++) {
+            slab[l] = line;
+        }
+
+        return slab;
+    }
+
+    private int calculateRequiredNumberOfLines(char letter) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    private char[] createLine(char letter) {
         throw new UnsupportedOperationException("not implemented");
     }
 }
