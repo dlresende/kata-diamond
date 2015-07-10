@@ -1,5 +1,7 @@
 package diamond_kata;
 
+import java.util.Stack;
+
 public class Diamond {
     public static void main( String[] args )
     {
@@ -27,7 +29,7 @@ public class Diamond {
 
     char[][] buildSlab(char letter) {
         char[] line = createLine(letter);
-        int numberOfLines = calculateRequiredNumberOfLines(letter);
+        int numberOfLines = calculateDiameter(letter);
         char[][] slab = new char[numberOfLines][];
 
         for(int l = 0; l < numberOfLines; l++) {
@@ -37,11 +39,27 @@ public class Diamond {
         return slab;
     }
 
-    private int calculateRequiredNumberOfLines(char letter) {
+    private int calculateDiameter(char letter) {
         throw new UnsupportedOperationException("not implemented");
     }
 
-    private char[] createLine(char letter) {
-        throw new UnsupportedOperationException("not implemented");
+    char[] createLine(char letter) {
+        int diameter = calculateDiameter(letter);
+        char[] line = new char[diameter];
+        Stack<Character> stack = new Stack<Character>();
+
+        int i = 0;
+        for(int c = (int) letter; c > (int) 'A'; c--) {
+            line[i++] = (char) c;
+            stack.push((char) c);
+        }
+
+        stack.push('A');
+
+        while(!stack.isEmpty()) {
+            line[++i] = stack.pop();
+        }
+
+        return line;
     }
 }

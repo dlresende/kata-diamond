@@ -35,6 +35,13 @@ public class DiamondTest {
         }));
     }
 
+    @Ignore("pending the implementation of Diamond#calculateDiameter")
+    @Test
+    public void should_create_a_line_from_a_given_letter_to_A_and_from_A_back_to_the_letter() {
+        assertThat(diamond.createLine('C'), is(equalTo(new char[] {'C', 'B', 'A', 'B', 'C'})));
+        assertThat(diamond.createLine('A'), is(equalTo(new char[] {'A'})));
+    }
+
     @Before
     public void setUp() {
         diamond = new Diamond();
