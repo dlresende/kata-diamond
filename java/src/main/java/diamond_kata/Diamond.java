@@ -1,11 +1,21 @@
 package diamond_kata;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Diamond {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        if(args.length != 1) {
+            throw new IllegalArgumentException("invalid input: " + Arrays.toString(args) + ". Must be a single character.");
+        }
+
+        Diamond diamond = new Diamond();
+        System.out.println( diamond.draw(args[0]) );
+    }
+
+    public String draw(String letter) {
+        return draw(letter.charAt(0));
     }
 
     public String draw(char letter) {
