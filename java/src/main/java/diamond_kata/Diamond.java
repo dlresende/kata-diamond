@@ -19,8 +19,26 @@ public class Diamond {
         throw new UnsupportedOperationException("not implemented");
     }
 
-    private char[][] filter(char[][] slap, char[] columnFilter) {
-        throw new UnsupportedOperationException("not implemented");
+    char[][] filter(char[][] slap, char[] columnFilter) {
+        char[][] filteredSlab = new char[slap.length][];
+        char whitespace = ' ';
+
+        for (int line = 0; line < slap.length; line++) {
+            char displayedLetter = columnFilter[line];
+            filteredSlab[line] = new char[slap[line].length];
+
+            for(int column = 0; column < slap[line].length; column++) {
+                if(slap[line][column] == displayedLetter) {
+                    filteredSlab[line][column] = slap[line][column];
+                }
+
+                else {
+                    filteredSlab[line][column] = whitespace;
+                }
+            }
+        }
+
+        return filteredSlab;
     }
 
     char[] createColumnFilter(char letter) {

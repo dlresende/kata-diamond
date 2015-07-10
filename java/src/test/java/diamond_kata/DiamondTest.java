@@ -54,6 +54,27 @@ public class DiamondTest {
         assertThat(diamond.createColumnFilter('A'), is(equalTo(new char[] {'A'})));
     }
 
+    @Test
+    public void should_filter_slab() {
+        char[] columnFilter = new char[] {'A', 'B', 'C', 'B', 'A'};
+        char[][] slab = new char[][]{
+                new char[] {'C', 'B', 'A', 'B', 'C'},
+                new char[] {'C', 'B', 'A', 'B', 'C'},
+                new char[] {'C', 'B', 'A', 'B', 'C'},
+                new char[] {'C', 'B', 'A', 'B', 'C'},
+                new char[] {'C', 'B', 'A', 'B', 'C'}
+        };
+
+        assertThat(diamond.filter(slab, columnFilter), is(equalTo(
+                new char[][]{
+                        new char[] {' ', ' ', 'A', ' ', ' '},
+                        new char[] {' ', 'B', ' ', 'B', ' '},
+                        new char[] {'C', ' ', ' ', ' ', 'C'},
+                        new char[] {' ', 'B', ' ', 'B', ' '},
+                        new char[] {' ', ' ', 'A', ' ', ' '}
+                })));
+    }
+
     @Before
     public void setUp() {
         diamond = new Diamond();
