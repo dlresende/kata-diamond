@@ -47,6 +47,13 @@ public class DiamondTest {
         assertThat(diamond.calculateDiameter('A'), is(1));
     }
 
+    @Test
+    public void should_build_a_column_used_to_filter_the_letters_in_the_slab() {
+        assertThat(diamond.createColumnFilter('C'), is(equalTo(new char[] {'A', 'B', 'C', 'B', 'A'})));
+        assertThat(diamond.createColumnFilter('B'), is(equalTo(new char[] {'A', 'B', 'A'})));
+        assertThat(diamond.createColumnFilter('A'), is(equalTo(new char[] {'A'})));
+    }
+
     @Before
     public void setUp() {
         diamond = new Diamond();

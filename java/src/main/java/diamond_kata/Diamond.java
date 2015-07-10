@@ -23,8 +23,24 @@ public class Diamond {
         throw new UnsupportedOperationException("not implemented");
     }
 
-    private char[] createColumnFilter(char letter) {
-        throw new UnsupportedOperationException("not implemented");
+    char[] createColumnFilter(char letter) {
+        int diameter = calculateDiameter(letter);
+        char[] line = new char[diameter];
+        Stack<Character> stack = new Stack<Character>();
+
+        int i = 0;
+        for(int c = (int)'A'; c < (int)letter; c++) {
+            line[i++] = (char) c;
+            stack.push((char) c);
+        }
+
+        stack.push(letter);
+
+        while(!stack.isEmpty()) {
+            line[i++] = stack.pop();
+        }
+
+        return line;
     }
 
     char[][] buildSlab(char letter) {
